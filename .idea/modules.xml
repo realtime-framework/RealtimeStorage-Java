@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/RealtimeStorage-Java.iml" filepath="$PROJECT_DIR$/RealtimeStorage-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/StorageJavaLib.iml" filepath="$PROJECT_DIR$/StorageJavaLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
