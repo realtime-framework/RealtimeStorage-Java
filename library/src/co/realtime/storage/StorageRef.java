@@ -6,14 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import co.realtime.storage.Rest.RestType;
-import co.realtime.storage.ext.OnBooleanResponse;
-import co.realtime.storage.ext.OnError;
-import co.realtime.storage.ext.OnReconnected;
-import co.realtime.storage.ext.OnReconnecting;
-import co.realtime.storage.ext.OnRole;
-import co.realtime.storage.ext.OnRoleName;
-import co.realtime.storage.ext.OnTableSnapshot;
-import co.realtime.storage.ext.StorageException;
+import co.realtime.storage.ext.*;
 import co.realtime.storage.security.Policies;
 import co.realtime.storage.security.Role;
 
@@ -182,6 +175,16 @@ public class StorageRef {
 	 */
 	public StorageRef(String applicationKey, String privateKey) throws StorageException {
 		this(applicationKey, privateKey, null);
+	}
+
+	/**
+	 * Event fired when a connection is established
+	 *
+	 * @return Current storage reference
+	 */
+	public StorageRef onConnected(OnConnected onConnected){
+		context.setOnConnected(onConnected,this);
+		return this;
 	}
 	
 	/**

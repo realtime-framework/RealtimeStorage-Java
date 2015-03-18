@@ -122,6 +122,11 @@ class Rest {
 		if(lastStopTable!=null){
 			bodyBuilder.addObject("startTable", lastStopTable);
 		}
+
+		if (this.type == RestType.QUERYITEMS && this.order == StorageOrder.DESC){
+			bodyBuilder.addObject("searchForward",false);
+		}
+
 		String rBody;
 		try {
 			rBody = (this.rawBody != null ? this.rawBody : this.bodyBuilder.getBody());
