@@ -55,7 +55,8 @@ class StorageContext {
 	Set<String> unsubscribing;
 	ArrayList<Rest> offlineBuffer;
 	boolean isOffline;
-	
+
+	co.realtime.storage.ext.OnConnected onStorageConnected = null;
 	co.realtime.storage.ext.OnReconnected onStorageReconnected = null;
 	co.realtime.storage.ext.OnReconnecting onStorageReconnecting = null;
 	
@@ -138,6 +139,9 @@ class StorageContext {
 			ortcClient.onConnected = new OnConnected() {
 				public void run(OrtcClient oc) {
 					//System.out.println("::connected");
+					if(onStorageConnected != null){
+						onStorageConnected.run(storage);
+					}
 					for(String channel : toSubscribe){
 						ortcClient.subscribe(channel, true, onMessage);
 					}
@@ -228,6 +232,11 @@ class StorageContext {
 			ortcClient.unsubscribe(channelName);
 			this.unsubscribing.add(channelName);
 		}
+	}
+
+	void setOnConnected(co.realtime.storage.ext.OnConnected callback, StorageRef storage){
+		this.storage = storage;
+		this.onStorageConnected = callback;
 	}
 	
 	void setOnReconnected(co.realtime.storage.ext.OnReconnected callback, StorageRef storage){

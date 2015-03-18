@@ -713,7 +713,7 @@ public class TableRef {
 	 * @return Current table reference
 	 */
 	public TableRef on(StorageEvent eventType, final ItemAttribute primary, final OnItemSnapshot onItemSnapshot) {
-		return on(eventType, primary, onItemSnapshot);
+		return on(eventType, primary, onItemSnapshot,null);
 	}
 	
 	/**
