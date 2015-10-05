@@ -154,7 +154,7 @@ class RestWebservice {
 	private static String securePostRequest(URL url, String postBody) throws Exception {			
 		SSLSocketFactory sslsocketfactory =  (SSLSocketFactory) SSLSocketFactory.getDefault();			
 		SSLSocket sslsocket = (SSLSocket) sslsocketfactory.createSocket(url.getHost(), url.getPort());				
-		sslsocket.setEnabledProtocols(new String[] {"SSLv3"});
+		sslsocket.setEnabledProtocols(new String[] {"TLSv1"});
 		
 		OutputStream outputstream = sslsocket.getOutputStream();
 		OutputStreamWriter outputstreamwriter = new OutputStreamWriter(outputstream);
