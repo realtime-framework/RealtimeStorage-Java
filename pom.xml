@@ -6,7 +6,7 @@
 
     <groupId>co.realtime</groupId>
     <artifactId>storage</artifactId>
-    <version>1.0.20</version>
+    <version>1.0.22</version>
     <packaging>jar</packaging>
     <name>Storage</name>
     <description>Realtime Cloud Storage SDK for Java</description>
